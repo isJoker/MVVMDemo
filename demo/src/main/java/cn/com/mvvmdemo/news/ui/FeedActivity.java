@@ -10,7 +10,7 @@ import cn.com.mvvmdemo.databinding.ActivityFeedBinding;
 import cn.com.mvvmdemo.news.ui.adapter.FeedListAdapter;
 import cn.com.mvvmdemo.news.viewmodel.NewsViewModel;
 
-public class FeedActivity extends BaseActivity<ActivityFeedBinding,NewsViewModel> {
+public class FeedActivity extends BaseActivity<ActivityFeedBinding, NewsViewModel> {
 
     private FeedListAdapter adapter;
 

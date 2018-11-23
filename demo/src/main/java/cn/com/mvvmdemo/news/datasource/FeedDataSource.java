@@ -9,7 +9,8 @@ import cn.com.mvvmdemo.news.viewmodel.NewsViewModel;
 
 /**
  * Created by JokerWan on 2018/11/22.
- * Function:
+ * Function:   PageKeyedDataSource<Long, ItemNews>
+ *         Long 加载数据的条件 ItemNews 加载数据的实体类
  */
 
 public class FeedDataSource extends PageKeyedDataSource<Long, ItemNews> {
