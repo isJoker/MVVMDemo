@@ -32,5 +32,10 @@ public class FeedActivity extends BaseActivity<ActivityFeedBinding, NewsViewMode
         binding.listFeed.setAdapter(adapter);
 
         viewModel.getArticleLiveData().observe(this, pagedList -> adapter.submitList(pagedList));
+
+        //用RxJava实现
+        /*viewModel.getArticleList(itemNews -> {
+            pagedList -> adapter.submitList(pagedList);
+        });*/
     }
 }

@@ -1,8 +1,9 @@
 package cn.com.mvvmdemo.news.datasource;
 
 import android.arch.paging.DataSource;
+import android.content.Context;
 
-import cn.com.mvvmdemo.news.viewmodel.NewsViewModel;
+import cn.com.mvvmdemo.news.repository.NewsRepository;
 
 /**
  * Created by JokerWan on 2018/11/22.
@@ -11,16 +12,18 @@ import cn.com.mvvmdemo.news.viewmodel.NewsViewModel;
 
 public class FeedDataFactory extends DataSource.Factory {
 
-    private FeedDataSource feedDataSource;
-    private NewsViewModel viewModel;
+    private FeedDataSource dataSource;
 
-    public FeedDataFactory(NewsViewModel viewModel) {
-        this.viewModel = viewModel;
+    public FeedDataFactory(Context context,NewsRepository repository) {
+        dataSource = new FeedDataSource(context,repository);
     }
 
     @Override
     public DataSource create() {
-        feedDataSource = new FeedDataSource(viewModel);
-        return feedDataSource;
+        return dataSource;
+    }
+
+    public FeedDataSource getDataSource() {
+        return dataSource;
     }
 }

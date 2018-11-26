@@ -60,6 +60,8 @@ dependencies {
     implementation rootProject.ext.support["constraint-layout"]
 
     implementation rootProject.ext.dependencies["paging"]
+    //支持rxjava
+//    implementation rootProject.ext.dependencies["rxjava2-paging"]
 
     implementation project(':minimvvm')
 }

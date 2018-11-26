@@ -1,8 +1,5 @@
 package cn.com.mvvmdemo.news.model;
 
-import android.support.annotation.NonNull;
-import android.support.v7.util.DiffUtil;
-
 /**
  * Created by JokerWan on 2018/11/22.
  * Function:
@@ -65,15 +62,4 @@ public class ItemNews {
         this.imgUrl = imgUrl;
     }
 
-    public static DiffUtil.ItemCallback<ItemNews> DIFF_CALLBACK = new DiffUtil.ItemCallback<ItemNews>() {
-        @Override
-        public boolean areItemsTheSame(@NonNull ItemNews oldItem, @NonNull ItemNews newItem) {
-            return oldItem.id == newItem.id;
-        }
-
-        @Override
-        public boolean areContentsTheSame(@NonNull ItemNews oldItem, @NonNull ItemNews newItem) {
-            return oldItem.equals(newItem);
-        }
-    };
 }

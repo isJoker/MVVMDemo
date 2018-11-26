@@ -3,6 +3,7 @@ package cn.com.mvvmdemo.news.ui.adapter;
 import android.arch.paging.PagedListAdapter;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import cn.com.mvvmdemo.news.model.ItemNews;
 public class FeedListAdapter extends PagedListAdapter<ItemNews, FeedListAdapter.ArticleItemViewHolder> {
 
     public FeedListAdapter() {
-        super(ItemNews.DIFF_CALLBACK);
+        super(DIFF_CALLBACK);
     }
 
     @NonNull
@@ -43,4 +44,16 @@ public class FeedListAdapter extends PagedListAdapter<ItemNews, FeedListAdapter.
             this.binding = binding;
         }
     }
+
+    public static DiffUtil.ItemCallback<ItemNews> DIFF_CALLBACK = new DiffUtil.ItemCallback<ItemNews>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull ItemNews oldItem, @NonNull ItemNews newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull ItemNews oldItem, @NonNull ItemNews newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
 }
