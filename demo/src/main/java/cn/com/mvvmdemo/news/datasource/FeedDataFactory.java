@@ -13,13 +13,17 @@ import cn.com.mvvmdemo.news.repository.NewsRepository;
 public class FeedDataFactory extends DataSource.Factory {
 
     private FeedDataSource dataSource;
+    private Context context;
+    private NewsRepository repository;
 
     public FeedDataFactory(Context context,NewsRepository repository) {
-        dataSource = new FeedDataSource(context,repository);
+        this.context = context;
+        this.repository = repository;
     }
 
     @Override
     public DataSource create() {
+        dataSource = new FeedDataSource(context,repository);
         return dataSource;
     }
 

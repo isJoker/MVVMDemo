@@ -64,7 +64,7 @@ public class NewsViewModel extends BaseViewModel {
 
         PagedList.Config pagedListConfig = new PagedList.Config.Builder()
                 //当数据为null时是否显示占位
-                .setEnablePlaceholders(true)
+                .setEnablePlaceholders(false)
                 //初始化数据时加载的数量，默认为pageSize*3
                 .setInitialLoadSizeHint(FIRST_LOAD_SIZE)
                 .setPageSize(PAGE_SIZE)

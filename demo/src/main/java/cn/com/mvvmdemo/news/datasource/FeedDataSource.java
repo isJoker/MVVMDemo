@@ -96,7 +96,7 @@ public class FeedDataSource extends PageKeyedDataSource<Long, ItemNews> {
     }
 
     @NonNull
-    private Object convertData(Feed o) {
+    private List<ItemNews> convertData(Feed o) {
         Feed feed = o;
         List<ItemNews> itemNews = new ArrayList<>();
         List<Article> articles = feed.getArticles();

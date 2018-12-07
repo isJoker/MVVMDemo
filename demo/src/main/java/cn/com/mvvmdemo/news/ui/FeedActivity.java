@@ -7,12 +7,14 @@ import cn.com.minimvvm.base.BaseActivity;
 import cn.com.mvvmdemo.BR;
 import cn.com.mvvmdemo.R;
 import cn.com.mvvmdemo.databinding.ActivityFeedBinding;
+import cn.com.mvvmdemo.news.ui.adapter.FeedAdapter;
 import cn.com.mvvmdemo.news.ui.adapter.FeedListAdapter;
 import cn.com.mvvmdemo.news.viewmodel.NewsViewModel;
 
 public class FeedActivity extends BaseActivity<ActivityFeedBinding, NewsViewModel> {
 
     private FeedListAdapter adapter;
+    private FeedAdapter adapter2;
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -31,7 +33,9 @@ public class FeedActivity extends BaseActivity<ActivityFeedBinding, NewsViewMode
         adapter = new FeedListAdapter();
         binding.listFeed.setAdapter(adapter);
 
-        viewModel.getArticleLiveData().observe(this, pagedList -> adapter.submitList(pagedList));
+        viewModel.getArticleLiveData().observe(this, pagedList -> {
+            adapter.submitList(pagedList);
+        });
 
         //用RxJava实现
         /*viewModel.getArticleList(itemNews -> {
